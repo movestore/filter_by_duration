@@ -1,0 +1,106 @@
+{
+  "settings": [
+	{
+      "id": "rel",
+      "name": "Relation to your selected duration",
+      "description": "Select if your selected data shall fullfill durations to be above or below your defined value.",
+      "defaultValue": null,
+      "type": "RADIOBUTTONS",
+      "options": [
+        {
+          "value": "above",
+          "displayText": "above (longer duration than)"
+        },
+		        {
+          "value": "below",
+          "displayText": "below (shorter duration than)"
+        }
+      ]
+	},
+	{
+      "id": "valu",
+      "name": "Value of your duration",
+      "description": "Insert a numeric value of the threshold duration that you want your individual tracks to fullfill for selection. See below for unit.",
+      "defaultValue": null,
+      "type": "DOUBLE"
+    },
+{
+      "id": "uni",
+      "name": "Unit of your duration",
+      "description": "Select the time unit (or 'locations') of your selected threshold duration.",
+      "defaultValue": null,
+      "type": "RADIOBUTTONS",
+      "options": [
+        {
+          "value": "seconds",
+          "displayText": "second(s)"
+        },
+		        {
+          "value": "minutes",
+          "displayText": "minute(s)"
+        },
+		        {
+          "value": "hours",
+          "displayText": "hour(s)"
+        },
+		        {
+          "value": "days",
+          "displayText": "day(s)"
+        },
+				        {
+          "value": "weeks",
+          "displayText": "week(s)"
+        },
+				        {
+          "value": "months",
+          "displayText": "month(s)"
+        },
+				        {
+          "value": "years",
+          "displayText": "year(s)"
+        }
+      ]
+	},
+  ],
+  "dependencies": {
+    "R": [
+      {
+        "name": "move"
+      },
+	  {
+		"name": "lubridate"
+	  }
+    ]
+  },
+  "license": {
+    "key": "MIT"
+  },
+  "language": "eng",
+  "keywords": [
+	"filter",
+    "duration",
+	"track selection",
+	"time"
+  ],
+  "people": [
+    {
+      "firstName": "Andrea",
+      "middleInitials": null,
+      "lastName": "Kölzsch",
+      "email": "akoelzsch@ab.mpg.de",
+      "roles": ["compiler","author","creator"],
+      "orcid": "0000-0003-0193-1563",
+      "affiliation": "Max-Planck-Institute of Animal Behavior",
+      "affiliationRor": "https://ror.org/026stee22"
+    }
+  ],
+  "funding": [
+    {
+	"name": "Knobloch Family Foundation",
+	"comment": "grant for Migration Mapper (MPIAB)"
+	}
+  ],
+  "documentation" : {
+    "url": "https://github.com/movestore/filter_by_duration/blob/main/README.md"
+  }
+}
