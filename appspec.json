@@ -32,35 +32,39 @@
       "type": "RADIOBUTTONS",
       "options": [
         {
+          "value": "locs",
+          "displayText": "locations"
+        },
+		{
           "value": "seconds",
-          "displayText": "second(s)"
+          "displayText": "seconds"
         },
 		        {
           "value": "minutes",
-          "displayText": "minute(s)"
+          "displayText": "minutes"
         },
 		        {
           "value": "hours",
-          "displayText": "hour(s)"
+          "displayText": "hours"
         },
 		        {
           "value": "days",
-          "displayText": "day(s)"
+          "displayText": "days"
         },
 				        {
           "value": "weeks",
-          "displayText": "week(s)"
+          "displayText": "weeks"
         },
 				        {
           "value": "months",
-          "displayText": "month(s)"
+          "displayText": "months"
         },
 				        {
           "value": "years",
           "displayText": "year(s)"
         }
       ]
-	},
+	}
   ],
   "dependencies": {
     "R": [
