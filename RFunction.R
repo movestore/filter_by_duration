@@ -34,7 +34,7 @@ rFunction <- function(data,rel,valu,uni)
     }
   }
   
-  len.res <- n.indiv(result)
+  if (is.null(result)) len.res <- 0 else len.res <- n.indiv(result)
   len.all <- n.indiv(data)
 
   if (is.null(result)) logger.info("None of your individuals have the required amount of locations/data duration. Result NULL.") else logger.info(paste("The selected data set retains ", len.res, "(of the originally",len.all, ") individuals, totalling", length(result),"(of the originally",length(data),") locations."))
