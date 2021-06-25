@@ -34,10 +34,9 @@ rFunction <- function(data,rel,valu,uni)
     }
   }
   
-  result.split <- move::split(result)
-  len.res <- length(result.split)
-  len.all <- length(data.split)
-  
+  len.res <- n.indiv(result)
+  len.all <- n.indiv(data)
+
   if (is.null(result)) logger.info("None of your individuals have the required amount of locations/data duration. Result NULL.") else logger.info(paste("The selected data set retains ", len.res, "(of the originally",len.all, ") individuals, totalling", length(result),"(of the originally",length(data),") locations."))
   
   return(result)
