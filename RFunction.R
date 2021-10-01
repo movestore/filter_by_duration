@@ -3,7 +3,7 @@ library('lubridate')
 
 rFunction <- function(data,rel,valu,uni)
 {
-  Sys.setenv(tz="GMT")
+  Sys.setenv(tz="UTC")
   
   if (is.null(units) | is.null(rel) | is.null(valu)) logger.info("One of your parameters has not been set. This will lead to an error.")
   
