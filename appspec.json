@@ -2,8 +2,8 @@
   "settings": [
 	{
       "id": "rel",
-      "name": "Relation to your selected duration",
-      "description": "Select if your selected data shall fullfill durations to be above or below your defined value.",
+      "name": "Filter preference relation",
+      "description": " Choose whether you want to retain records that are above or below your defined value (see below).",
       "defaultValue": null,
       "type": "RADIOBUTTONS",
       "options": [
@@ -20,14 +20,14 @@
 	{
       "id": "valu",
       "name": "Value of your duration",
-      "description": "Insert a numeric value of the threshold duration that you want your individual tracks to fullfill for selection. See below for unit.",
+      "description": "Insert a numeric value to represent the threshold duration. Records above or below this threshold will be retained depending on your filter preference (above). See below for unit.",
       "defaultValue": null,
       "type": "DOUBLE"
     },
 {
       "id": "uni",
       "name": "Unit of your duration",
-      "description": "Select the time unit (or 'locations') of your selected threshold duration.",
+      "description": "Select the time unit of your selected threshold duration or 'locations' for a threshold number of locations.",
       "defaultValue": null,
       "type": "RADIOBUTTONS",
       "options": [
