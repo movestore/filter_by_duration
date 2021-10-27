@@ -39,6 +39,11 @@ rFunction <- function(data,rel,valu,uni)
 
   if (is.null(result)) logger.info("None of your individuals have the required amount of locations/data duration. Result NULL.") else logger.info(paste("The selected data set retains ", len.res, "(of the originally",len.all, ") individuals, totalling", length(result),"(of the originally",length(data),") locations."))
   
+  #force moveStack if only one ID
+  if (is(result,'Move')) {
+    result <- moveStack(result,forceTz="UTC")
+  }
+  
   return(result)
 }
 
