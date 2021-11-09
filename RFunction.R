@@ -41,7 +41,8 @@ rFunction <- function(data,rel,valu,uni)
   
   #force moveStack if only one ID
   if (is(result,'Move')) {
-    result <- moveStack(result,forceTz="UTC")
+    result <- move::moveStack(result,forceTz="UTC")
+    logger.info("Converted Move-object to MoveStack-object.")
   }
   
   return(result)
