@@ -41,8 +41,12 @@ rFunction <- function(data,rel,valu,uni)
   
   #force moveStack if only one ID
   if (is(result,'Move')) {
+<<<<<<< Updated upstream
     result <- move::moveStack(result,forceTz="UTC")
     logger.info("Converted Move-object to MoveStack-object.")
+=======
+  result <- moveStack(result,forceTz="UTC")
+>>>>>>> Stashed changes
   }
   
   return(result)
