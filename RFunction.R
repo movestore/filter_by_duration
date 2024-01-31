@@ -1,4 +1,4 @@
-library('move')
+library('move2')
 library('lubridate')
 
 rFunction <- function(data,rel,valu,uni)
@@ -11,39 +11,34 @@ rFunction <- function(data,rel,valu,uni)
   
   if (uni == "locs" )
   {
+    id_data <- table(mt_track_id(data))
     if (rel=="above") 
     {
-      if (any(as.vector(n.locs(data) > valu))) result <- data[[as.vector(n.locs(data) > valu)]] else result <- NULL
+      if (any(as.vector(id_data > valu))) result <- data[mt_track_id(data) %in% names(id_data)[as.vector(id_data > valu)],] else result <- NULL
     }
     if (rel=="below") 
     {
-      if (any(as.vector(n.locs(data) < valu))) result <- data[[as.vector(n.locs(data) < valu)]] else result <- NULL
+      if (any(as.vector(id_data < valu))) result <- data[mt_track_id(data) %in% names(id_data)[as.vector(id_data < valu)],] else result <- NULL
     }
   } else
   {
-    data.split <- move::split(data)
-    dt <- lapply(data.split, function(x) time_length(interval(start=min(timestamps(x)),end=max(timestamps(x))),unit=uni))
+    data.split <- split(data,mt_track_id(data))
+    dt <- lapply(data.split, function(x) time_length(interval(start=min(mt_time(x)),end=max(mt_time(x))),unit=uni))
     
     if (rel=="above") 
     {
-      if (any(dt>valu)) result <- data[[dt>valu]] else result <- NULL
+      if (any(dt>valu)) result <- data[mt_track_id(data) %in% names(dt)[dt>valu],] else result <- NULL
     }
     if (rel=="below") 
     {
-      if (any(dt<valu)) result <- data[[dt<valu]] else result <- NULL
+      if (any(dt<valu)) result <- data[mt_track_id(data) %in% names(dt)[dt<valu],] else result <- NULL
     }
   }
   
-  if (is.null(result)) len.res <- 0 else len.res <- n.indiv(result)
-  len.all <- n.indiv(data)
+  if (is.null(result)) len.res <- 0 else len.res <- mt_n_tracks(result)
+  len.all <- mt_n_tracks(data)
 
-  if (is.null(result)) logger.info("None of your individuals have the required amount of locations/data duration. Result NULL.") else logger.info(paste("The selected data set retains ", len.res, "(of the originally",len.all, ") individuals, totalling", length(result),"(of the originally",length(data),") locations."))
-  
-  #force moveStack if only one ID
-  if (is(result,'Move')) {
-    result <- move::moveStack(result,forceTz="UTC")
-    logger.info("Converted Move-object to MoveStack-object.")
-  }
+  if (is.null(result)) logger.info("None of your individuals have the required amount of locations/data duration. Result NULL.") else logger.info(paste("The selected data set retains ", len.res, "(of the originally",len.all, ") individuals, totalling", nrow(result),"(of the originally",nrow(data),") locations."))
   
   return(result)
 }

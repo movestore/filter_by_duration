@@ -10,10 +10,10 @@ Filters your data set to only include tracks of a certain length.
 This App filters the input data set to include only individual tracks that fullfill a certain lenght requirement. Lenght can be defined as number of locations or a time duration. The duration of each track is derived directly from the data, not from Movebank individual properties.
 
 ### Input data
-moveStack in Movebank format
+move2 location object
 
 ### Output data
-moveStack in Movebank format
+move2 location object
 
 ### Artefacts
 none
@@ -24,6 +24,9 @@ none
 **Value of your duration (`valu`):** Value of the selected required length relation that the filtered part of the data set has to fullfill. Note that also comma-values can be entered. Example: `50.2`
 
 **Unit of your duration (`uni`):** Unit of the length value that the filtered data set has to fullfill. Possible values are 'locations' or any time unit ranging between 'seconds' and 'years'.
+
+### Most common errors
+Please post an issues [here](https://github.com/movestore/filter_by_duration/issues) if you encounter recurring errors or problems.
 
 ### Null or error handling:
 **Setting `rel`:** If none of the relation options are selected, an error will be returned.

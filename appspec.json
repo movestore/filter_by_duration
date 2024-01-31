@@ -69,7 +69,7 @@
   "dependencies": {
     "R": [
       {
-        "name": "move"
+        "name": "move2"
       },
 	  {
 		"name": "lubridate"
