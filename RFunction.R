@@ -1,17 +1,21 @@
 library('move2')
 library('lubridate')
 
-rFunction <- function(data,rel,valu,uni)
+rFunction <- function(data,rel=NULL,valu,uni)
 {
   Sys.setenv(tz="UTC")
   
-  if (is.null(units) | is.null(rel) | is.null(valu)) logger.info("One of your parameters has not been set. This will lead to an error.")
+  if (is.null(units) | is.null(rel) | is.null(valu)) logger.info("One of your parameters has not been set. This will lead to an error if you expect filtering.")
   
-  logger.info(paste("You have requested to filter the data set to include only data of individuals with duration", rel, valu, uni, "."))
+  logger.info(paste("You have requested to filter the data set to include only data of individuals with duration", rel, valu, uni, ". A column track_length in unit",uni,"will be added to the input data."))
   
   if (uni == "locs" )
   {
     id_data <- table(mt_track_id(data))
+    
+    data <- data |>
+      mutate_track_data(track_length = as.numeric(id_data))
+
     if (rel=="above") 
     {
       if (any(as.vector(id_data > valu))) result <- data[mt_track_id(data) %in% names(id_data)[as.vector(id_data > valu)],] else result <- NULL
@@ -24,6 +28,9 @@ rFunction <- function(data,rel,valu,uni)
   {
     data.split <- split(data,mt_track_id(data))
     dt <- lapply(data.split, function(x) time_length(interval(start=min(mt_time(x)),end=max(mt_time(x))),unit=uni))
+    
+    data <- data |>
+      mutate_track_data(track_length = as.numeric(dt))
     
     if (rel=="above") 
     {
