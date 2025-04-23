@@ -4,7 +4,7 @@
       "id": "rel",
       "name": "Filter preference relation",
       "description": " Choose whether you want to retain records that are above or below your defined value (see below). If you want to annotate with track length only, select a filter that keeps all records.",
-      "defaultValue": null,
+      "defaultValue": "above",
       "type": "RADIOBUTTONS",
       "options": [
         {
@@ -28,7 +28,7 @@
       "id": "uni",
       "name": "Unit of your duration",
       "description": "Select the time unit of your selected threshold duration or 'locations' for a threshold number of locations. Appended track_length will also be calculated in this unit.",
-      "defaultValue": null,
+      "defaultValue": "locs",
       "type": "RADIOBUTTONS",
       "options": [
         {
